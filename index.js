@@ -45,8 +45,14 @@ try {
       
       app.put("/users/:username", (req, res) => {
         const { username, password } = req.body;
-        const newUser = { username, password };
-        res.json({ message: "User updated successfully", user: newUser });
+        const updatedUser = { username, password };
+        res.json({ message: "User updated successfully", user: updatedUser });
+      });
+
+      app.delete("/users/:username", (req, res) => {
+        const { username, password } = req.body;
+        const userInfo = { username, password };
+        res.json({ message: "User deleted successfully", deletedUser: userInfo });
       });
 
 }  finally {
