@@ -20,15 +20,27 @@ try {
     app.get("/users", (req, res) => {
         res.json(users);
       });
+
       app.get("/users/:username", (req, res) => {
         const username = req.params.username;
         const foundUser = users.find((user) => user.username === username);
         if (foundUser) {
-          res.json(foundUser);
+          res.status(200).json({ message: "sigle user get successfully", user: foundUser });
         } else {
           res.status(404).json({ message: "User not found" });
         }
       });
+      
+
+      app.post('/users', (req, res) => {
+        const { username, password } = req.body;
+        if (!username || !password) {
+          return res.status(400).json({ message: 'Username and password are required' });
+        }
+        const newUser = { username, password };
+        users.push(newUser);
+        res.status(201).json({ message: 'User created successfully', user: newUser });
+      });      
 
 }  finally {
 }
