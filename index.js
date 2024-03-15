@@ -18,8 +18,9 @@ const run = async () => {
 try {
 
     app.get("/users", (req, res) => {
-        res.json(users);
+        res.status(200).json({ message: "All users get successfully", users: users });
       });
+      
 
       app.get("/users/:username", (req, res) => {
         const username = req.params.username;
@@ -40,7 +41,13 @@ try {
         const newUser = { username, password };
         users.push(newUser);
         res.status(201).json({ message: 'User created successfully', user: newUser });
-      });      
+      });    
+      
+      app.put("/users/:username", (req, res) => {
+        const { username, password } = req.body;
+        const newUser = { username, password };
+        res.json({ message: "User updated successfully", user: newUser });
+      });
 
 }  finally {
 }
