@@ -7,7 +7,7 @@ app.use(cors())
   
 app.use(express.json());
 app.get("/", (req, res) => {
-    res.send("bitechX Runnig successfully");
+    res.send("BitechX Runnig successfully");
 });
 
 app.listen(port, () => {
