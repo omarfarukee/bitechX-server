@@ -39,7 +39,7 @@ try {
           return res.status(400).json({ message: 'Username and password are required' });
         }
         const newUser = { username, password };
-        users.push(newUser);
+        // users.push(newUser);
         res.status(201).json({ message: 'User created successfully', user: newUser });
       });    
       
