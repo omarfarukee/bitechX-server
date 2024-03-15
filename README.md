@@ -1,5 +1,5 @@
 
-## bitechX-server--
+## BitechX-server--
 
 ## CRUD responses from postman--
 - All user get
